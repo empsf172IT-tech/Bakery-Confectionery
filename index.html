@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maison Sucre — Artisan Cake & Confectionery Marketplace in London</title>
+  <meta name="description"
+    content="Discover London's finest independent bakers, design a bespoke cake with instant pricing, and book same-day delivery of artisan cakes, pastries and confectionery.">
+  <meta name="theme-color" content="#2A1C15">
+  <script>(function () { try { var t = localStorage.getItem('ms-theme'); if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } document.documentElement.setAttribute('data-theme', t); } catch (e) { } })();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Maison Sucre — Home">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round">
+            <path d="M4.5 16a7.5 7.5 0 0 1 15 0" />
+            <path d="M3 16h18M12 6.5V8.5" />
+            <circle cx="12" cy="5.5" r="1" />
+            <path d="M8 13.2a4.5 4.5 0 0 1 2.6-2" />
+          </svg></span>
+        <span class="logo-text"><strong>Maison <em>Sucre</em></strong><small>Artisan Marketplace</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="custom-cake.html">Custom Cake</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" id="theme-toggle" data-theme-toggle
+          aria-label="Switch to dark theme">
+          <svg class="i i-moon" aria-hidden="true">
+            <use href="#i-moon"></use>
+          </svg>
+          <svg class="i i-sun" aria-hidden="true">
+            <use href="#i-sun"></use>
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" id="nav-toggle" aria-controls="mobile-menu"
+          aria-expanded="false" aria-label="Open menu">
+          <svg class="i" aria-hidden="true">
+            <use href="#i-menu"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <a class="mm-link" href="index.html" aria-current="page">Home <svg class="i">
+        <use href="#i-arrow-up-right"></use>
+      </svg></a>
+    <a class="mm-link" href="marketplace.html">Marketplace <svg class="i">
+        <use href="#i-arrow-up-right"></use>
+      </svg></a>
+    <a class="mm-link" href="custom-cake.html">Custom Cake <svg class="i">
+        <use href="#i-arrow-up-right"></use>
+      </svg></a>
+    <a class="mm-link" href="dashboard.html">Baker Dashboard <svg class="i">
+        <use href="#i-arrow-up-right"></use>
+      </svg></a>
+    <a href="custom-cake.html" class="btn btn--primary btn--block">Design Your Cake</a>
+    <p class="mm-foot">Same-day delivery across Central London · Order by 2 PM</p>
+  </nav>
+
+  <main id="main">
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow hero-fade">London's artisan confectionery marketplace</span>
+          <h1 id="hero-title">
+            <span class="line"><span>Crafted sweetness,</span></span>
+            <span class="line"><span><em>curated</em> for every</span></span>
+            <span class="line"><span>occasion.</span></span>
+          </h1>
+          <p class="lead hero-fade d1">Discover couture cakes, laminated pastries and hand-tempered chocolate from 240
+            independent bakers — or design your own creation with instant pricing and book a delivery slot in minutes.
+          </p>
+          <div class="hero-ctas hero-fade d2">
+            <a href="marketplace.html" class="btn btn--primary" id="hero-explore">Explore Marketplace <svg
+                class="i i--move">
+                <use href="#i-arrow-right"></use>
+              </svg></a>
+            <a href="custom-cake.html" class="btn btn--ghost" id="hero-create">Create Your Cake</a>
+          </div>
+          <div class="hero-stats hero-fade d3">
+            <div><strong>240+</strong><span>Vetted artisan bakers</span></div>
+            <div><strong>4.94</strong><span>Average order rating</span></div>
+            <div><strong>38k</strong><span>Celebrations delivered</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <svg class="hero-ring" viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <path id="ring-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
+            </defs>
+            <text>
+              <textPath href="#ring-path">Handcrafted · Curated · Delivered ·</textPath>
+            </text>
+          </svg>
+          <span class="hero-ring-core" aria-hidden="true"><svg class="i">
+              <use href="#i-sparkle"></use>
+            </svg></span>
+          <div class="hero-frame">
+            <img src="images/hero_cake.jpg"
+              alt="Three-tier ivory buttercream cake decorated with terracotta sugar ranunculus and gold leaf"
+              width="1200" height="896" fetchpriority="high">
+          </div>
+          <div class="float-card fc-rating">
+            <span class="fc-icon"><svg class="i">
+                <use href="#i-star"></use>
+              </svg></span>
+            <div><strong>4.97 · Atelier Céleste</strong><span class="stars"><svg class="i">
+                  <use href="#i-star"></use>
+                </svg><svg class="i">
+                  <use href="#i-star"></use>
+                </svg><svg class="i">
+                  <use href="#i-star"></use>
+                </svg><svg class="i">
+                  <use href="#i-star"></use>
+                </svg><svg class="i">
+                  <use href="#i-star"></use>
+                </svg></span><span>1,284 verified reviews</span></div>
+          </div>
+          <div class="float-card fc-delivery">
+            <span class="fc-icon"><svg class="i">
+                <use href="#i-truck"></use>
+              </svg></span>
+            <div><strong>Same-day delivery</strong><span>Order by 2 PM · 6 slots left today</span></div>
+          </div>
+          <div class="float-card fc-popular">
+            <img src="images/macaron_giftbox.jpg" alt="" width="46" height="46">
+            <div><strong>Maison Macaron Coffret</strong><span>86 ordered in the last 24h</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. DISCOVER ARTISAN BAKERIES ============ -->
+    <section class="section section--alt" id="bakeries" aria-labelledby="bakeries-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__text">
+            <span class="eyebrow">The Ateliers</span>
+            <h2 id="bakeries-title">Discover artisan bakeries, <em>chosen by hand.</em></h2>
+            <p>Every maker on Maison Sucre passes a blind tasting, a kitchen visit and a hygiene audit. Fewer than one
+              in eight applicants are accepted.</p>
+          </div>
+          <a href="marketplace.html#bakers" class="link-arrow">Meet all 240 bakers <svg class="i">
+              <use href="#i-arrow-right"></use>
+            </svg></a>
+        </div>
+
+        <div class="bakery-grid">
+          <article class="bakery-card bakery-card--feature reveal">
+            <span class="badge badge--accent bakery-tag">Baker of the Month</span>
+            <div class="media"><img src="images/wedding_cake.jpg"
+                alt="Four-tier textured ivory wedding cake with roses and pampas" loading="lazy" width="896"
+                height="1200"></div>
+            <div class="bakery-body">
+              <span class="bakery-avatar"><img src="images/baker_woman.jpg" alt="Élodie Marchand" loading="lazy"
+                  width="56" height="56"></span>
+              <div>
+                <h3 class="bakery-name">Atelier Céleste</h3>
+                <p class="bakery-by">by Élodie Marchand · Ferrandi Paris alumna</p>
+              </div>
+              <p class="bakery-specialty">Sugar-flower couture cakes and fine entremets, sculpted petal by petal in a
+                light-filled Marylebone atelier.</p>
+              <div class="bakery-meta">
+                <span class="rating"><svg class="i">
+                    <use href="#i-star"></use>
+                  </svg>4.96 <small>(1,284)</small></span>
+                <span><svg class="i">
+                    <use href="#i-pin"></use>
+                  </svg>Marylebone · Mayfair</span>
+                <span><svg class="i">
+                    <use href="#i-clock"></use>
+                  </svg>24h notice</span>
+              </div>
+              <a href="marketplace.html?bakery=celeste#products" class="link-arrow" id="view-bakery-celeste">View Bakery
+                <svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></a>
+            </div>
+          </article>
+
+          <article class="bakery-card bakery-card--wide reveal" data-delay="1">
+            <div class="media"><img src="images/artisan_pastries.jpg"
+                alt="Croissants, pain au chocolat and almond pastries on a wooden board" loading="lazy" width="1200"
+                height="896"></div>
+            <div class="bakery-body">
+              <span class="bakery-avatar"><img src="images/baker_man.jpg" alt="Tobias Wren" loading="lazy" width="56"
+                  height="56"></span>
+              <div>
+                <h3 class="bakery-name">Hearth &amp; Crumb</h3>
+                <p class="bakery-by">by Tobias Wren · 19 years at the oven</p>
+              </div>
+              <p class="bakery-specialty">Wild-yeast viennoiserie laminated over 72 hours and baked in a century-old
+                deck oven.</p>
+              <div class="bakery-meta">
+                <span class="rating"><svg class="i">
+                    <use href="#i-star"></use>
+                  </svg>4.91 <small>(2,310)</small></span>
+                <span><svg class="i">
+                    <use href="#i-pin"></use>
+                  </svg>Shoreditch · Hackney</span>
+              </div>
+              <a href="marketplace.html?bakery=hearth#products" class="link-arrow" id="view-bakery-hearth">View Bakery
+                <svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></a>
+            </div>
+          </article>
+
+          <article class="bakery-card reveal" data-delay="2">
+            <div class="media"><img src="images/chocolate_bonbons.jpg"
+                alt="Hand-painted chocolate bonbons on dark slate" loading="lazy" width="1200" height="896"></div>
+            <div class="bakery-body">
+              <span class="bakery-avatar"><img src="images/chocolatier_woman.jpg" alt="Anaya Rao" loading="lazy"
+                  width="56" height="56"></span>
+              <div>
+                <h3 class="bakery-name">Cacao Noor</h3>
+                <p class="bakery-by">by Anaya Rao · Chocolatier</p>
+              </div>
+              <div class="bakery-meta">
+                <span class="rating"><svg class="i">
+                    <use href="#i-star"></use>
+                  </svg>4.94</span>
+                <span><svg class="i">
+                    <use href="#i-pin"></use>
+                  </svg>Notting Hill</span>
+              </div>
+              <a href="marketplace.html?bakery=noor#products" class="link-arrow" id="view-bakery-noor">View Bakery <svg
+                  class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></a>
+            </div>
+          </article>
+
+          <article class="bakery-card reveal" data-delay="3">
+            <div class="media"><img src="images/macaron_giftbox.jpg"
+                alt="Gift box of French macarons with a coral ribbon" loading="lazy" width="1200" height="896"></div>
+            <div class="bakery-body">
+              <span class="bakery-avatar bakery-avatar--terra">PR</span>
+              <div>
+                <h3 class="bakery-name">Petit Ruban</h3>
+                <p class="bakery-by">by Camille Okafor · Macaron specialist</p>
+              </div>
+              <div class="bakery-meta">
+                <span class="rating"><svg class="i">
+                    <use href="#i-star"></use>
+                  </svg>4.89</span>
+                <span><svg class="i">
+                    <use href="#i-pin"></use>
+                  </svg>Clapham · Fulham</span>
+              </div>
+              <a href="marketplace.html?bakery=ruban#products" class="link-arrow" id="view-bakery-ruban">View Bakery
+                <svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. CUSTOM CAKE EXPERIENCE ============ -->
+    <section class="section section--inverse" id="experience" aria-labelledby="cx-title">
+      <div class="container cx-grid">
+        <div class="reveal">
+          <span class="eyebrow">The Cake Studio</span>
+          <h2 id="cx-title" style="font-size: clamp(2.1rem, 4.6vw, 3.6rem); margin-top: 16px;">Design it once. <em>See
+              the price</em> as you go.</h2>
+          <p class="lead" style="margin-top: 18px; color: var(--on-inverse-muted); max-width: 520px;">Seven considered
+            choices, a live preview and a transparent quote — then your brief goes straight to the baker who'll make it.
+          </p>
+          <ol class="cx-steps" id="cx-steps">
+            <li><button class="cx-step is-active" type="button" data-step="0"><span
+                  class="num">01</span><span><strong>Cake style</strong><small>Round, square or a tall drum — single or
+                    tiered.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+            <li><button class="cx-step" type="button" data-step="1"><span
+                  class="num">02</span><span><strong>Flavour</strong><small>Madagascan vanilla to Bronte pistachio
+                    sponge.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+            <li><button class="cx-step" type="button" data-step="2"><span
+                  class="num">03</span><span><strong>Filling</strong><small>Curds, compotes, pralines and salted
+                    caramel.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+            <li><button class="cx-step" type="button" data-step="3"><span
+                  class="num">04</span><span><strong>Size</strong><small>From an intimate 6" to a three-tier for
+                    sixty.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+            <li><button class="cx-step" type="button" data-step="4"><span
+                  class="num">05</span><span><strong>Decoration</strong><small>Fresh florals, gold leaf, ganache drip or
+                    sugar flowers.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+            <li><button class="cx-step" type="button" data-step="5"><span
+                  class="num">06</span><span><strong>Message</strong><small>Hand-piped in your chosen script, up to 40
+                    characters.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+            <li><button class="cx-step" type="button" data-step="6"><span class="num">07</span><span><strong>Estimated
+                    price</strong><small>Itemised instantly — no surprises at checkout.</small></span><svg class="i">
+                  <use href="#i-arrow-right"></use>
+                </svg></button></li>
+          </ol>
+        </div>
+
+        <div class="cx-card reveal" data-delay="2">
+          <div class="cx-card-head">
+            <strong>Léa's 30th</strong>
+            <span class="cx-live">Live preview</span>
+          </div>
+          <div class="cx-preview">
+            <div class="media"><img src="images/berry_birthday_cake.jpg"
+                alt="Chantilly cream cake topped with berries and gold candles" loading="lazy" width="1200"
+                height="896"></div>
+            <ul class="cx-rows" id="cx-rows">
+              <li class="is-active"><span>Style</span><b>Two-tier round</b></li>
+              <li><span>Flavour</span><b>Madagascan vanilla</b></li>
+              <li><span>Filling</span><b>Passionfruit curd</b></li>
+              <li><span>Size</span><b>6" + 9" · serves 30</b></li>
+              <li><span>Decoration</span><b>Fresh florals</b></li>
+              <li><span>Message</span><b><em>Joyeux 30e, Léa</em></b></li>
+              <li><span>Estimate</span><b>£ 183.00</b></li>
+            </ul>
+          </div>
+          <div class="cx-progress" aria-hidden="true"><span id="cx-progress"></span></div>
+          <div class="cx-total">
+            <div><small>Estimated total</small><strong>£183</strong></div>
+            <a href="custom-cake.html" class="btn btn--primary" id="start-customizing">Start Customizing <svg
+                class="i i--move">
+                <use href="#i-arrow-right"></use>
+              </svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. MARKETPLACE HIGHLIGHTS ============ -->
+    <section class="section" id="highlights" aria-labelledby="hl-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__text">
+            <span class="eyebrow">This week on the marketplace</span>
+            <h2 id="hl-title">Marketplace <em>highlights</em></h2>
+            <p>Signature cakes, celebration desserts and seasonal confectionery — refreshed every Monday by our tasting
+              editors.</p>
+          </div>
+          <a href="marketplace.html" class="link-arrow">Browse the full marketplace <svg class="i">
+              <use href="#i-arrow-right"></use>
+            </svg></a>
+        </div>
+        <div class="hl-controls reveal">
+          <div class="hl-tabs" role="tablist" aria-label="Highlight categories" id="hl-tabs">
+            <button class="chip is-active" role="tab" aria-selected="true" data-hl="all">All</button>
+            <button class="chip" role="tab" aria-selected="false" data-hl="signature">Signature Cakes</button>
+            <button class="chip" role="tab" aria-selected="false" data-hl="celebration">Celebration Desserts</button>
+            <button class="chip" role="tab" aria-selected="false" data-hl="pastries">Artisan Pastries</button>
+            <button class="chip" role="tab" aria-selected="false" data-hl="gifts">Gift Boxes</button>
+            <button class="chip" role="tab" aria-selected="false" data-hl="seasonal">Seasonal</button>
+          </div>
+          <div class="hl-nav">
+            <button class="icon-btn" type="button" id="hl-prev" aria-label="Previous"><svg class="i">
+                <use href="#i-arrow-left"></use>
+              </svg></button>
+            <button class="icon-btn" type="button" id="hl-next" aria-label="Next"><svg class="i">
+                <use href="#i-arrow-right"></use>
+              </svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="hl-track reveal" id="hl-track" tabindex="0" aria-label="Highlighted products"></div>
+      <div class="container">
+        <div class="hl-progress" aria-hidden="true"><span id="hl-progress"></span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Maison Sucre — Home">
+            <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round">
+                <path d="M4.5 16a7.5 7.5 0 0 1 15 0" />
+                <path d="M3 16h18M12 6.5V8.5" />
+                <circle cx="12" cy="5.5" r="1" />
+                <path d="M8 13.2a4.5 4.5 0 0 1 2.6-2" />
+              </svg></span>
+            <span class="logo-text"><strong>Maison <em>Sucre</em></strong><small>Artisan Marketplace</small></span>
+          </a>
+          <div>
+            <p>A curated marketplace connecting London with its finest independent bakers, pâtissiers and chocolatiers —
+              every order made to order, never mass-produced.</p>
+
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Marketplace</h3>
+          <ul>
+            <li><a href="marketplace.html">Browse all creations</a></li>
+            <li><a href="marketplace.html?cat=birthday#products">Birthday cakes</a></li>
+            <li><a href="marketplace.html?cat=wedding#products">Wedding cakes</a></li>
+            <li><a href="marketplace.html?cat=dessert-boxes#products">Gift &amp; dessert boxes</a></li>
+            <li><a href="marketplace.html?cat=seasonal#products">The Autumn Edit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Customers</h3>
+          <ul>
+            <li><a href="custom-cake.html">Custom Cake Studio</a></li>
+            <li><a href="custom-cake.html#delivery">Delivery slots</a></li>
+            <li><a href="marketplace.html#booking">Delivery zones</a></li>
+            <li><a href="custom-cake.html#summary">Manage a booking</a></li>
+            <li><a href="marketplace.html?occasion=corporate#products">Corporate gifting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Bakers</h3>
+          <ul>
+            <li><a href="dashboard.html">Baker Dashboard</a></li>
+            <li><a href="marketplace.html#bakers">Partner stories</a></li>
+            <li><a href="mailto:partners@maisonsucre.co.uk">Become a partner</a></li>
+            <li><a href="mailto:partners@maisonsucre.co.uk?subject=Fees">Commission &amp; fees</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="mailto:care@maisonsucre.co.uk">Help centre</a></li>
+            <li><a href="mailto:care@maisonsucre.co.uk?subject=Allergens">Allergen guide</a></li>
+            <li><a href="mailto:care@maisonsucre.co.uk?subject=Refund">Refunds &amp; changes</a></li>
+            <li><a href="tel:+442079460321">Call concierge</a></li>
+          </ul>
+          <form class="nl-form" id="newsletter-form" novalidate style="margin-top: 20px;">
+            <label for="nl-email" class="visually-hidden">Email address</label>
+            <input id="nl-email" type="email" placeholder="Subscribe for seasonal updates" required autocomplete="email">
+            <button class="btn btn--primary btn--sm" type="submit" id="nl-submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Maison Sucre Ltd. Made with care in London.</p>
+        <div class="footer-legal">
+          <a href="#main">Privacy Policy</a>
+          <a href="#main">Terms of Service</a>
+          <a href="#main">Cookies</a>
+        </div>
+        <div class="socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i">
+              <use href="#i-instagram"></use>
+            </svg></a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest"><svg class="i">
+              <use href="#i-pinterest"></use>
+            </svg></a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X"><svg class="i">
+              <use href="#i-x"></use>
+            </svg></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg class="i">
+              <use href="#i-youtube"></use>
+            </svg></a>
+        </div>
+      </div>
+      <div class="footer-wordmark" aria-hidden="true">Maison Sucre</div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" id="back-to-top" aria-label="Back to top">
+    <svg class="btt-ring" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" />
+    </svg>
+    <svg class="i" aria-hidden="true">
+      <use href="#i-arrow-up"></use>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
+</html>

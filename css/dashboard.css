@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Maison Sucre — Standalone Baker Operations SaaS Dashboard
+   NO navbar · NO footer · Sidebar layout
+   ========================================================================== */
+
+/* ---------- Dashboard Shell ---------- */
+.db-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: clip;
+}
+
+/* ---------- Sidebar ---------- */
+.db-sidebar {
+  position: sticky; top: 0; height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  padding: 24px 16px;
+  display: flex; flex-direction: column; gap: 24px;
+  z-index: 40;
+  overflow-y: auto;
+}
+.db-brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline: 8px; }
+.db-nav { display: flex; flex-direction: column; gap: 4px; }
+.db-nav button, .db-nav a {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: var(--r-sm);
+  font-size: .9rem; font-weight: 600; color: var(--text-soft);
+  transition: background-color .2s, color .2s, transform .2s var(--ease);
+  width: 100%; text-align: left;
+}
+.db-nav button:hover, .db-nav a:hover { background: var(--bg); color: var(--text); transform: translateX(3px); }
+.db-nav button.is-active { background: var(--inverse); color: var(--on-inverse); }
+.db-nav button.is-active .i { color: var(--accent); }
+[data-theme="dark"] .db-nav button.is-active .i { color: var(--terra); }
+.db-nav .badge { margin-left: auto; font-size: .68rem; padding: 2px 8px; }
+
+.db-baker-profile {
+  margin-top: auto; padding: 14px; border-radius: var(--r-md);
+  background: var(--bg); border: 1px solid var(--line);
+  display: flex; align-items: center; gap: 12px;
+}
+.db-baker-profile img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); }
+.db-baker-profile strong { display: block; font-size: .88rem; line-height: 1.2; }
+.db-baker-profile small { font-size: .74rem; color: var(--muted); }
+
+/* ---------- Main Content Area ---------- */
+.db-main { padding: clamp(24px, 4vw, 40px); display: grid; gap: 36px; min-width: 0; }
+.db-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.db-header-titles h1 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+.db-header-titles p { color: var(--muted); font-size: .94rem; margin-top: 4px; }
+.db-header-actions { display: flex; align-items: center; gap: 12px; }
+
+/* ---------- Section 1: Overview Cards ---------- */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.kpi-card {
+  padding: 20px 22px; border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm); display: grid; gap: 12px;
+  transition: transform .3s var(--ease), box-shadow .3s;
+}
+.kpi-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.kpi-top { display: flex; justify-content: space-between; align-items: center; }
+.kpi-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); }
+.kpi-card strong { font-family: var(--f-display); font-size: 2.2rem; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi-foot { display: flex; align-items: center; gap: 8px; font-size: .8rem; color: var(--muted); }
+.kpi-trend { font-weight: 700; color: #2E7D32; display: inline-flex; align-items: center; gap: 2px; }
+[data-theme="dark"] .kpi-trend { color: #81C784; }
+
+/* ---------- Section 2: Order Table ---------- */
+.db-card { background: var(--surface); border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow-sm); overflow: hidden; }
+.db-card-head { padding: 22px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.db-card-head h2 { font-size: 1.45rem; }
+
+.table-wrap { overflow-x: auto; scrollbar-width: thin; }
+.db-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9rem; white-space: nowrap; }
+.db-table th { padding: 14px 22px; background: var(--bg); font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
+.db-table td { padding: 16px 22px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.db-table tr:last-child td { border-bottom: 0; }
+.db-table tr:hover td { background: var(--bg-alt); }
+
+.status-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: var(--r-pill);
+  font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.st-new { background: rgba(194, 99, 74, .15); color: var(--accent-text); }
+.st-prep { background: rgba(230, 160, 40, .18); color: #B77900; }
+[data-theme="dark"] .st-prep { color: #FFD54F; }
+.st-ready { background: rgba(46, 125, 50, .15); color: #2E7D32; }
+[data-theme="dark"] .st-ready { color: #81C784; }
+.st-out { background: rgba(33, 150, 243, .15); color: #1976D2; }
+[data-theme="dark"] .st-out { color: #64B5F6; }
+.st-done { background: var(--line-strong); color: var(--text-soft); }
+
+/* ---------- Section 3: Product Management Grid ---------- */
+.mgmt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; padding: 24px; }
+.mgmt-card { display: flex; flex-direction: column; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--bg); overflow: hidden; }
+.mgmt-card .media { aspect-ratio: 16 / 10; }
+.mgmt-card-body { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.mgmt-card-head { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+.mgmt-card-head h3 { font-size: 1.15rem; }
+.toggle-switch { position: relative; width: 44px; height: 24px; display: inline-block; flex-shrink: 0; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider { position: absolute; inset: 0; background-color: var(--line-strong); border-radius: 24px; cursor: pointer; transition: background-color .3s; }
+.toggle-slider::before { content: ""; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: var(--surface); border-radius: 50%; transition: transform .3s; }
+.toggle-switch input:checked + .toggle-slider { background-color: var(--accent); }
+.toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+
+/* ---------- Section 4: Analytics Charts ---------- */
+.charts-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; }
+.chart-box { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.chart-box h3 { font-size: 1.25rem; }
+.chart-svg { width: 100%; height: 220px; }
+.chart-bar-list { display: grid; gap: 12px; }
+.chart-bar-item { display: grid; gap: 4px; }
+.chart-bar-head { display: flex; justify-content: space-between; font-size: .84rem; font-weight: 600; }
+.chart-bar-track { height: 8px; border-radius: 4px; background: var(--bg); overflow: hidden; }
+.chart-bar-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width .8s var(--ease); }
+
+/* ---------- Responsive Dashboard ---------- */
+@media (max-width: 1080px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .charts-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  .db-layout { grid-template-columns: 1fr; }
+  .db-sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; width: 280px;
+    transform: translateX(-100%); transition: transform .35s var(--ease);
+    box-shadow: var(--shadow-lg); z-index: 100;
+  }
+  .db-sidebar.is-open { transform: none; }
+  .db-mobile-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px var(--gutter); background: var(--surface); border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 520px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .mgmt-grid { grid-template-columns: 1fr; padding: 16px; }
+  .db-card-head { padding: 16px; }
+  .db-main { padding: 16px; }
+}

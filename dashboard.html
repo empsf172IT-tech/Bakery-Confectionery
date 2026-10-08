@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baker Operations Dashboard — Atelier Céleste | Maison Sucre</title>
+  <meta name="description" content="Professional SaaS operations panel for independent bakeries. Manage incoming bookings, order status, custom cake options, revenue trends and delivery metrics.">
+  <meta name="theme-color" content="#2A1C15">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>(function(){try{var t=localStorage.getItem('ms-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="db-layout">
+    <!-- ============ STANDALONE SAAS SIDEBAR ============ -->
+    <aside class="db-sidebar" id="db-sidebar">
+      <div class="db-brand">
+        <a href="index.html" class="logo" aria-label="Maison Sucre — Back to Marketplace">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 16a7.5 7.5 0 0 1 15 0"/><path d="M3 16h18M12 6.5V8.5"/><circle cx="12" cy="5.5" r="1"/><path d="M8 13.2a4.5 4.5 0 0 1 2.6-2"/></svg></span>
+          <span class="logo-text"><strong>Maison <em>Sucre</em></strong><small>Baker Suite</small></span>
+        </a>
+      </div>
+
+      <nav class="db-nav" aria-label="Dashboard sections">
+        <button type="button" class="is-active" data-db-tab="overview">
+          <svg class="i"><use href="#i-grid"></use></svg> Overview
+        </button>
+        <button type="button" data-db-tab="orders">
+          <svg class="i"><use href="#i-orders"></use></svg> Orders &amp; Bookings
+          <span class="badge badge--accent">4 New</span>
+        </button>
+        <button type="button" data-db-tab="products">
+          <svg class="i"><use href="#i-cake"></use></svg> Custom &amp; Products
+        </button>
+        <button type="button" data-db-tab="analytics">
+          <svg class="i"><use href="#i-chart"></use></svg> Revenue &amp; Analytics
+        </button>
+        <button type="button" data-db-tab="settings">
+          <svg class="i"><use href="#i-settings"></use></svg> Atelier Settings
+        </button>
+      </nav>
+
+      <div style="padding-inline: 8px;">
+        <button class="btn btn--ghost btn--sm btn--block" type="button" data-theme-toggle style="justify-content: flex-start;">
+          <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+          <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+          <span>Toggle Theme</span>
+        </button>
+      </div>
+
+      <div class="db-baker-profile">
+        <img src="images/baker_woman.jpg" alt="Élodie Marchand">
+        <div>
+          <strong>Atelier Céleste</strong>
+          <small>Élodie Marchand · Marylebone</small>
+        </div>
+      </div>
+
+      <a href="index.html" class="btn btn--ghost btn--sm" style="margin-top: -12px;">
+        <svg class="i"><use href="#i-logout"></use></svg> Exit to Site
+      </a>
+    </aside>
+
+    <!-- ============ MAIN CONTENT AREA ============ -->
+    <div style="display: flex; flex-direction: column; min-width: 0;">
+      <!-- Mobile Bar -->
+      <div class="db-mobile-bar" style="display: none;">
+        <button class="icon-btn" type="button" id="sidebar-toggle" aria-label="Toggle Navigation">
+          <svg class="i"><use href="#i-menu"></use></svg>
+        </button>
+        <strong style="font-family: var(--f-display);">Atelier Céleste Dashboard</strong>
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
+          <svg class="i i-moon"><use href="#i-moon"></use></svg>
+          <svg class="i i-sun"><use href="#i-sun"></use></svg>
+        </button>
+      </div>
+
+      <main class="db-main" id="db-main">
+        <!-- TOP APP HEADER -->
+        <header class="db-header">
+          <div class="db-header-titles">
+            <span class="eyebrow">Baker Operations Suite</span>
+            <h1 id="db-tab-title">Dashboard Overview</h1>
+            <p id="db-tab-sub">Real-time bookings, production timeline, and atelier performance for today.</p>
+          </div>
+          <div class="db-header-actions">
+            <button class="btn btn--ghost btn--sm" type="button" id="btn-refresh"><svg class="i"><use href="#i-clock"></use></svg> Live Updates</button>
+            <button class="btn btn--primary btn--sm" type="button" id="btn-new-product"><svg class="i"><use href="#i-plus"></use></svg> Add New Product</button>
+          </div>
+        </header>
+
+        <!-- ============ SECTION 1 — DASHBOARD OVERVIEW ============ -->
+        <section id="sec-overview" class="db-section">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="eyebrow">Today's Orders</span>
+                <span class="kpi-icon"><svg class="i"><use href="#i-bag"></use></svg></span>
+              </div>
+              <strong>14</strong>
+              <div class="kpi-foot">
+                <span class="kpi-trend"><svg class="i"><use href="#i-trend"></use></svg> +18%</span>
+                <span>vs. yesterday</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="eyebrow">Pending Bookings</span>
+                <span class="kpi-icon"><svg class="i"><use href="#i-clock"></use></svg></span>
+              </div>
+              <strong>4</strong>
+              <div class="kpi-foot">
+                <span style="color: var(--accent-text); font-weight:700;">Needs action</span>
+                <span>within 2h</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="eyebrow">October Revenue</span>
+                <span class="kpi-icon"><svg class="i"><use href="#i-sparkle"></use></svg></span>
+              </div>
+              <strong>£14,820</strong>
+              <div class="kpi-foot">
+                <span class="kpi-trend"><svg class="i"><use href="#i-trend"></use></svg> +24%</span>
+                <span>vs. last month</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="eyebrow">Upcoming Deliveries</span>
+                <span class="kpi-icon"><svg class="i"><use href="#i-truck"></use></svg></span>
+              </div>
+              <strong>8 Slots</strong>
+              <div class="kpi-foot">
+                <span>Next dispatch at 11:30 AM</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SECTION 2 — ORDER & BOOKING MANAGEMENT ============ -->
+        <section id="sec-orders" class="db-section">
+          <div class="db-card">
+            <div class="db-card-head">
+              <h2>Order &amp; Production Management</h2>
+              <div class="hl-tabs" id="order-status-tabs" role="tablist">
+                <button class="chip is-active" data-st-filter="all">All Orders (8)</button>
+                <button class="chip" data-st-filter="New">New (2)</button>
+                <button class="chip" data-st-filter="Preparing">Preparing (2)</button>
+                <button class="chip" data-st-filter="Ready">Ready (2)</button>
+                <button class="chip" data-st-filter="Completed">Completed (2)</button>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table class="db-table" id="db-orders-table">
+                <thead>
+                  <tr>
+                    <th>Order #</th>
+                    <th>Customer</th>
+                    <th>Product / Specifications</th>
+                    <th>Delivery Date &amp; Slot</th>
+                    <th>Amount</th>
+                    <th>Order Status</th>
+                    <th>Payment</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="db-orders-tbody">
+                  <!-- JS populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SECTION 3 — PRODUCT & CUSTOM CAKE MANAGEMENT ============ -->
+        <section id="sec-products" class="db-section">
+          <div class="db-card">
+            <div class="db-card-head">
+              <h2>Atelier Product Catalog &amp; Custom Options</h2>
+              <button class="btn btn--dark btn--sm" type="button" id="btn-add-flavor"><svg class="i"><use href="#i-plus"></use></svg> Add Custom Flavor Option</button>
+            </div>
+
+            <div class="mgmt-grid" id="mgmt-product-grid">
+              <!-- JS populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SECTION 4 — REVENUE & PERFORMANCE ANALYTICS ============ -->
+        <section id="sec-analytics" class="db-section">
+          <div class="charts-grid">
+            <div class="db-card chart-box">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3>Weekly Revenue Performance</h3>
+                <span class="eyebrow">Oct 1 – Oct 8, 2026</span>
+              </div>
+              <svg class="chart-svg" viewBox="0 0 500 200" fill="none">
+                <!-- Grid Lines -->
+                <line x1="40" y1="40" x2="480" y2="40" stroke="var(--line)" stroke-dasharray="4"/>
+                <line x1="40" y1="90" x2="480" y2="90" stroke="var(--line)" stroke-dasharray="4"/>
+                <line x1="40" y1="140" x2="480" y2="140" stroke="var(--line)" stroke-dasharray="4"/>
+                <!-- Trend Area -->
+                <path d="M40 150 Q 110 120, 180 130 T 320 60 T 480 40 L 480 180 L 40 180 Z" fill="var(--accent-soft)"/>
+                <path d="M40 150 Q 110 120, 180 130 T 320 60 T 480 40" stroke="var(--accent)" stroke-width="3" fill="none"/>
+                <!-- Data Nodes -->
+                <circle cx="40" cy="150" r="5" fill="var(--accent)"/>
+                <circle cx="110" cy="120" r="5" fill="var(--accent)"/>
+                <circle cx="180" cy="130" r="5" fill="var(--accent)"/>
+                <circle cx="250" cy="90" r="5" fill="var(--accent)"/>
+                <circle cx="320" cy="60" r="5" fill="var(--accent)"/>
+                <circle cx="390" cy="70" r="5" fill="var(--accent)"/>
+                <circle cx="480" cy="40" r="6" fill="var(--inverse)"/>
+              </svg>
+            </div>
+
+            <div class="db-card chart-box">
+              <h3>Popular Cake Flavours</h3>
+              <div class="chart-bar-list">
+                <div class="chart-bar-item">
+                  <div class="chart-bar-head"><span>Madagascan Vanilla Bean</span><span>42%</span></div>
+                  <div class="chart-bar-track"><div class="chart-bar-fill" style="width: 42%;"></div></div>
+                </div>
+                <div class="chart-bar-item">
+                  <div class="chart-bar-head"><span>Bronte Pistachio &amp; Rose</span><span>28%</span></div>
+                  <div class="chart-bar-track"><div class="chart-bar-fill" style="width: 28%;"></div></div>
+                </div>
+                <div class="chart-bar-item">
+                  <div class="chart-bar-head"><span>70% Ecuadorian Cacao</span><span>18%</span></div>
+                  <div class="chart-bar-track"><div class="chart-bar-fill" style="width: 18%;"></div></div>
+                </div>
+                <div class="chart-bar-item">
+                  <div class="chart-bar-head"><span>Amalfi Lemon Elderflower</span><span>12%</span></div>
+                  <div class="chart-bar-track"><div class="chart-bar-fill" style="width: 12%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" data-scroller="#db-main">
+    <svg class="btt-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/></svg>
+    <svg class="i" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

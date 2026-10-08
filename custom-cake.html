@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom Cake Studio &amp; Booking Engine — Maison Sucre</title>
+  <meta name="description" content="Design your bespoke cake online with real-time visual customizer, instant itemised pricing, calendar slot picker, and direct artisan booking in London.">
+  <meta name="theme-color" content="#2A1C15">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>(function(){try{var t=localStorage.getItem('ms-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital@1&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Maison Sucre — Home">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 16a7.5 7.5 0 0 1 15 0"/><path d="M3 16h18M12 6.5V8.5"/><circle cx="12" cy="5.5" r="1"/><path d="M8 13.2a4.5 4.5 0 0 1 2.6-2"/></svg></span>
+        <span class="logo-text"><strong>Maison <em>Sucre</em></strong><small>Artisan Marketplace</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="custom-cake.html" aria-current="page">Custom Cake</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+          <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+          <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg class="i" aria-hidden="true"><use href="#i-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <a class="mm-link" href="index.html">Home <svg class="i"><use href="#i-arrow-up-right"></use></svg></a>
+    <a class="mm-link" href="marketplace.html">Marketplace <svg class="i"><use href="#i-arrow-up-right"></use></svg></a>
+    <a class="mm-link" href="custom-cake.html" aria-current="page">Custom Cake <svg class="i"><use href="#i-arrow-up-right"></use></svg></a>
+    <a class="mm-link" href="dashboard.html">Baker Dashboard <svg class="i"><use href="#i-arrow-up-right"></use></svg></a>
+    <a href="#customizer" class="btn btn--primary btn--block">Design Your Cake</a>
+    <p class="mm-foot">Same-day delivery across Central London · Order by 2 PM</p>
+  </nav>
+
+  <main id="main">
+    <!-- ============ HERO & NAVIGATION RAIL ============ -->
+    <section class="page-hero" style="padding-bottom: 32px;">
+      <div class="container">
+        <div class="crumbs">
+          <a href="index.html">Home</a> <svg class="i"><use href="#i-chevron-right"></use></svg>
+          <a href="marketplace.html">Marketplace</a> <svg class="i"><use href="#i-chevron-right"></use></svg>
+          <span>Bespoke Cake Studio</span>
+        </div>
+        <h1 style="font-size: clamp(2.4rem, 5vw, 4.4rem);">Bespoke Cake <em>Customizer</em></h1>
+        <p class="lead">Configure your dream cake step-by-step. Watch your visual preview update live alongside an instant itemised quote.</p>
+
+        <div class="step-rail">
+          <a href="#customizer" class="is-current"><span>1</span> Customizer</a>
+          <a href="#pricing"><span>2</span> Pricing Calculator</a>
+          <a href="#delivery"><span>3</span> Delivery Slot</a>
+          <a href="#summary"><span>4</span> Summary &amp; Booking</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 1 — CAKE CUSTOMIZER ============ -->
+    <section class="section" id="customizer" aria-labelledby="customizer-title">
+      <div class="container builder">
+        <!-- Visual Preview Canvas (Sticky) -->
+        <div class="stage-wrap">
+          <div class="stage">
+            <div class="stage-top">
+              <span class="badge badge--accent" id="preview-shape-tag">Round Tier</span>
+              <span class="cx-live"><svg class="i"><use href="#i-sparkle"></use></svg> Live 2D Render</span>
+            </div>
+
+            <svg class="stage-svg" id="cake-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#2A1C15" flood-opacity="0.18"/>
+                </filter>
+                <linearGradient id="frostGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" id="gradStop1" stop-color="#FDFBF7"/>
+                  <stop offset="50%" id="gradStop2" stop-color="#F4EFE6"/>
+                  <stop offset="100%" id="gradStop3" stop-color="#E2D7C5"/>
+                </linearGradient>
+              </defs>
+              <!-- Stand -->
+              <ellipse cx="200" cy="335" rx="140" ry="14" fill="#2A1C15" opacity="0.1"/>
+              <path d="M140 330 C140 320, 260 320, 260 330 L240 360 L160 360 Z" fill="var(--line-strong)"/>
+              <ellipse cx="200" cy="326" rx="130" ry="12" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>
+
+              <!-- Bottom Tier (Tier 1) -->
+              <g id="svg-tier-1" filter="url(#shadow)">
+                <path id="t1-body" d="M90 220 C90 205, 310 205, 310 220 L310 320 C310 335, 90 335, 90 320 Z" fill="url(#frostGrad)" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+                <ellipse id="t1-top" cx="200" cy="220" rx="110" ry="15" fill="#FFF9EF"/>
+              </g>
+
+              <!-- Middle Tier (Tier 2) -->
+              <g id="svg-tier-2" filter="url(#shadow)">
+                <path id="t2-body" d="M120 135 C120 123, 280 123, 280 135 L280 220 C280 232, 120 232, 120 220 Z" fill="url(#frostGrad)" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+                <ellipse id="t2-top" cx="200" cy="135" rx="80" ry="12" fill="#FFF9EF"/>
+              </g>
+
+              <!-- Top Tier (Tier 3) -->
+              <g id="svg-tier-3" filter="url(#shadow)" style="display:none;">
+                <path id="t3-body" d="M145 70 C145 60, 255 60, 255 70 L255 135 C255 145, 145 145, 145 135 Z" fill="url(#frostGrad)" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+                <ellipse id="t3-top" cx="200" cy="70" rx="55" ry="9" fill="#FFF9EF"/>
+              </g>
+
+              <!-- Drip Overlay -->
+              <g id="svg-drip" opacity="0">
+                <path d="M120 136 C130 155, 140 140, 150 165 C160 140, 175 170, 190 138 C205 160, 220 145, 235 172 C245 140, 260 160, 280 136" stroke="#5C3A21" stroke-width="6" stroke-linecap="round" fill="none"/>
+              </g>
+
+              <!-- Flowers / Decoration -->
+              <g id="svg-decor-florals">
+                <circle cx="200" cy="120" r="14" fill="var(--terra)" opacity="0.9"/>
+                <circle cx="218" cy="128" r="10" fill="#E8A08D"/>
+                <circle cx="184" cy="128" r="10" fill="#E8A08D"/>
+                <path d="M225 120 Q245 105 250 115" stroke="#7A8B6E" stroke-width="3" stroke-linecap="round"/>
+              </g>
+
+              <!-- Pipe Text -->
+              <text id="svg-msg-text" x="200" y="275" text-anchor="middle" font-family="'Dancing Script', cursive" font-size="22" font-weight="bold" fill="#4A372C" opacity="0.9">Happy Birthday</text>
+            </svg>
+
+            <div class="stage-meta">
+              <span id="meta-size">8" Medium (Serves 16)</span>
+              <span id="meta-flavor">Vanilla Bean Sponge</span>
+              <span id="meta-fill">Raspberry Gel</span>
+            </div>
+
+            <div class="stage-price">
+              <div><small>Estimated Price</small><strong id="stage-price-val">£88.00</strong></div>
+              <a href="#pricing" class="btn btn--primary btn--sm">View Breakdown <svg class="i"><use href="#i-chevron-down"></use></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customization Form Controls -->
+        <div class="opt-panel">
+          <h2 id="customizer-title" class="visually-hidden">Cake Customizer Options</h2>
+
+          <!-- 1. Cake Shape & Tiers -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>01</span> Cake Style &amp; Shape</h3>
+              <output id="out-shape">Classic Round · Single Tier</output>
+            </div>
+            <div class="opt-grid opt-grid--3" role="radiogroup" aria-label="Cake Style">
+              <button class="opt" type="button" role="radio" aria-checked="true" data-opt="shape" data-val="round-1" data-tiers="1" data-shape="Round" data-price="0">
+                <strong>Round Single</strong>
+                <small>Clean 1-tier cylinder</small>
+                <em>Included</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="shape" data-val="round-2" data-tiers="2" data-shape="Round" data-price="35">
+                <strong>Round Two-Tier</strong>
+                <small>Elegant stacked proportion</small>
+                <em>+£35.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="shape" data-val="round-3" data-tiers="3" data-shape="Round" data-price="85">
+                <strong>Grand Three-Tier</strong>
+                <small>Couture celebration height</small>
+                <em>+£85.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="shape" data-val="square-1" data-tiers="1" data-shape="Square" data-price="15">
+                <strong>Square Single</strong>
+                <small>Modern sharp edges</small>
+                <em>+£15.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="shape" data-val="heart-1" data-tiers="1" data-shape="Heart" data-price="20">
+                <strong>Vintage Heart</strong>
+                <small>Coquette piped border</small>
+                <em>+£20.00</em>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Cake Size & Portion -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>02</span> Size &amp; Guest Count</h3>
+              <output id="out-size">8" Medium (14-16 portions)</output>
+            </div>
+            <div class="opt-grid opt-grid--4" role="radiogroup" aria-label="Cake Size">
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="size" data-val="6" data-label="6&quot; Small" data-serves="Serves 8-10" data-price="52">
+                <strong>6" Small</strong>
+                <small>Serves 8–10</small>
+                <em>£52.00 base</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="true" data-opt="size" data-val="8" data-label="8&quot; Medium" data-serves="Serves 14-16" data-price="78">
+                <strong>8" Medium</strong>
+                <small>Serves 14–16</small>
+                <em>£78.00 base</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="size" data-val="10" data-label="10&quot; Large" data-serves="Serves 22-26" data-price="115">
+                <strong>10" Large</strong>
+                <small>Serves 22–26</small>
+                <em>£115.00 base</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="size" data-val="12" data-label="12&quot; Grand" data-serves="Serves 35-40" data-price="165">
+                <strong>12" Grand</strong>
+                <small>Serves 35–40</small>
+                <em>£165.00 base</em>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Sponge Flavor -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>03</span> Sponge Flavour</h3>
+              <output id="out-flavor">Madagascan Vanilla Bean</output>
+            </div>
+            <div class="opt-grid opt-grid--3" role="radiogroup" aria-label="Sponge Flavor">
+              <button class="opt" type="button" role="radio" aria-checked="true" data-opt="flavor" data-val="vanilla" data-label="Madagascan Vanilla Bean" data-price="0">
+                <strong>Vanilla Bean</strong>
+                <small>Classic light butter sponge</small>
+                <em>Included</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="flavor" data-val="chocolate" data-label="70% Ecuadorian Cacao" data-price="5">
+                <strong>Ecuadorian Cacao</strong>
+                <small>Rich moist dark chocolate</small>
+                <em>+£5.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="flavor" data-val="pistachio" data-label="Bronte Pistachio &amp; Cardamom" data-price="12">
+                <strong>Bronte Pistachio</strong>
+                <small>Nutty Sicilian pistachio</small>
+                <em>+£12.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="flavor" data-val="lemon" data-label="Amalfi Lemon &amp; Elderflower" data-price="6">
+                <strong>Amalfi Lemon</strong>
+                <small>Zesty citrus infusion</small>
+                <em>+£6.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="flavor" data-val="redvelvet" data-label="Red Velvet &amp; Cocoa" data-price="8">
+                <strong>Red Velvet</strong>
+                <small>Subtle buttermilk &amp; cocoa</small>
+                <em>+£8.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="flavor" data-val="hazelnut" data-label="Piedmont Hazelnut Praline" data-price="10">
+                <strong>Hazelnut Praline</strong>
+                <small>Toasted roasted nut sponge</small>
+                <em>+£10.00</em>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Filling & Compote -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>04</span> Layer Filling</h3>
+              <output id="out-filling">Kentish Raspberry Gel</output>
+            </div>
+            <div class="opt-grid opt-grid--3" role="radiogroup" aria-label="Filling">
+              <button class="opt" type="button" role="radio" aria-checked="true" data-opt="filling" data-val="raspberry" data-label="Kentish Raspberry Gel" data-price="0">
+                <strong>Raspberry Gel</strong>
+                <small>Tart fresh berry reduction</small>
+                <em>Included</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="filling" data-val="passionfruit" data-label="Passionfruit &amp; Mango Curd" data-price="4">
+                <strong>Passionfruit Curd</strong>
+                <small>Tropical velvety curd</small>
+                <em>+£4.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="filling" data-val="caramel" data-label="Maldon Sea Salt Caramel" data-price="5">
+                <strong>Salted Caramel</strong>
+                <small>Slow-cooked butter caramel</small>
+                <em>+£5.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="filling" data-val="chocolate-ganache" data-label="Dark Chocolate Ganache" data-price="6">
+                <strong>Dark Ganache</strong>
+                <small>Silky 70% chocolate cream</small>
+                <em>+£6.00</em>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Frosting Palette -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>05</span> Frosting Palette &amp; Finish</h3>
+              <output id="out-frosting">Ivory Buttercream</output>
+            </div>
+            <div class="swatches" role="radiogroup" aria-label="Frosting color">
+              <button class="swatch" type="button" role="radio" aria-checked="true" data-color="#F9F5EC" data-hex1="#FDFBF7" data-hex2="#F4EFE6" data-hex3="#E2D7C5" data-name="Ivory Cream">
+                <span style="background: #F4EFE6;"></span> Ivory
+              </button>
+              <button class="swatch" type="button" role="radio" aria-checked="false" data-color="#E8A08D" data-hex1="#FAD8CF" data-hex2="#E8A08D" data-hex3="#C2634A" data-name="Terracotta Coral">
+                <span style="background: #E8A08D;"></span> Terracotta
+              </button>
+              <button class="swatch" type="button" role="radio" aria-checked="false" data-color="#4A372C" data-hex1="#6B5243" data-hex2="#4A372C" data-hex3="#2A1C15" data-name="Deep Espresso">
+                <span style="background: #4A372C;"></span> Espresso
+              </button>
+              <button class="swatch" type="button" role="radio" aria-checked="false" data-color="#98A886" data-hex1="#C6D3B8" data-hex2="#98A886" data-hex3="#6E7E5D" data-name="Sage Green">
+                <span style="background: #98A886;"></span> Sage
+              </button>
+              <button class="swatch" type="button" role="radio" aria-checked="false" data-color="#E5C7A9" data-hex1="#F6E4D0" data-hex2="#E5C7A9" data-hex3="#C69E7B" data-name="Warm Caramel">
+                <span style="background: #E5C7A9;"></span> Caramel
+              </button>
+            </div>
+          </div>
+
+          <!-- 6. Decoration Style -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>06</span> Decoration Style</h3>
+              <output id="out-decor">Pressed Organic Florals</output>
+            </div>
+            <div class="opt-grid opt-grid--3" role="radiogroup" aria-label="Decoration style">
+              <button class="opt" type="button" role="radio" aria-checked="true" data-opt="decor" data-val="florals" data-label="Pressed Organic Florals" data-price="18">
+                <strong>Organic Florals</strong>
+                <small>Edible garden blooms &amp; herbs</small>
+                <em>+£18.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="decor" data-val="gold-leaf" data-label="24k Gold Leaf Accents" data-price="24">
+                <strong>24k Gold Leaf</strong>
+                <small>Hand-applied gold foil touches</small>
+                <em>+£24.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="decor" data-val="ganache-drip" data-label="Glossy Ganache Drip" data-price="12">
+                <strong>Ganache Drip</strong>
+                <small>Rich dark chocolate drip</small>
+                <em>+£12.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="decor" data-val="sugar-flowers" data-label="Hand-sculpted Sugar Flowers" data-price="45">
+                <strong>Sugar Flowers</strong>
+                <small>Couture handcrafted roses</small>
+                <em>+£45.00</em>
+              </button>
+              <button class="opt" type="button" role="radio" aria-checked="false" data-opt="decor" data-val="minimalist" data-label="Minimalist Smooth Finish" data-price="0">
+                <strong>Minimalist Smooth</strong>
+                <small>Clean architectural lines</small>
+                <em>Included</em>
+              </button>
+            </div>
+          </div>
+
+          <!-- 7. Personalized Message -->
+          <div class="opt-group">
+            <div class="opt-group-head">
+              <h3><span>07</span> Hand-Piped Message</h3>
+              <output id="out-msg">Piped on top tier</output>
+            </div>
+            <div class="field msg-field">
+              <label for="cake-msg-input" class="visually-hidden">Personalized Message</label>
+              <input class="input" id="cake-msg-input" type="text" maxlength="40" placeholder="e.g. Happy 30th Birthday Léa!" value="Happy Birthday">
+              <span class="count" id="msg-count">14/40</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 2 — INSTANT PRICING CALCULATOR ============ -->
+    <section class="section section--alt" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__text">
+            <span class="eyebrow">Real-Time Cost Breakdown</span>
+            <h2 id="pricing-title">Instant <em>pricing calculator.</em></h2>
+            <p>Complete transparency. Watch itemised adjustments update live as you add extra tiers, specialized dietary sponges, or gift add-ons.</p>
+          </div>
+        </div>
+
+        <div class="pricing-grid reveal">
+          <div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 16px;">Optional Celebration Add-ons</h3>
+            <div class="addons">
+              <label class="addon">
+                <input type="checkbox" data-addon="candles" data-price="6" checked>
+                <span class="tick"><svg class="i"><use href="#i-check"></use></svg></span>
+                <div>
+                  <strong>Tall Gold Candles</strong>
+                  <small>Pack of 12 thin metallic candles</small>
+                </div>
+                <b>+£6.00</b>
+              </label>
+
+              <label class="addon">
+                <input type="checkbox" data-addon="topper" data-price="14">
+                <span class="tick"><svg class="i"><use href="#i-check"></use></svg></span>
+                <div>
+                  <strong>Acrylic Name Topper</strong>
+                  <small>Custom mirror gold lettering</small>
+                </div>
+                <b>+£14.00</b>
+              </label>
+
+              <label class="addon">
+                <input type="checkbox" data-addon="box" data-price="8" checked>
+                <span class="tick"><svg class="i"><use href="#i-check"></use></svg></span>
+                <div>
+                  <strong>Luxury Gift Presentation</strong>
+                  <small>Linen box with terracotta satin ribbon</small>
+                </div>
+                <b>+£8.00</b>
+              </label>
+
+              <label class="addon">
+                <input type="checkbox" data-addon="card" data-price="4">
+                <span class="tick"><svg class="i"><use href="#i-check"></use></svg></span>
+                <div>
+                  <strong>Handwritten Calligraphy Card</strong>
+                  <small>Pressed cotton paper with envelope</small>
+                </div>
+                <b>+£4.00</b>
+              </label>
+            </div>
+
+            <div class="qty-row">
+              <div>
+                <strong>Cake Quantity</strong>
+                <small>Ordering identical cakes for multi-venue events?</small>
+              </div>
+              <div class="stepper">
+                <button type="button" id="calc-qty-minus" aria-label="Decrease quantity"><svg class="i"><use href="#i-minus"></use></svg></button>
+                <output id="calc-qty-out">1</output>
+                <button type="button" id="calc-qty-plus" aria-label="Increase quantity"><svg class="i"><use href="#i-plus"></use></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Receipt Panel -->
+          <div class="receipt">
+            <div class="receipt-head">
+              <h3>Itemised Quote</h3>
+              <span id="rcpt-baker-tag">Atelier Céleste</span>
+            </div>
+            <div class="receipt-body">
+              <div class="r-line">
+                <span>Base Cake (<span id="rcpt-size">8" Medium</span>)</span>
+                <span id="rcpt-base-price">£78.00</span>
+              </div>
+              <div class="r-line">
+                <span>Tier Structure (<span id="rcpt-tiers">Single Tier</span>)</span>
+                <span id="rcpt-tier-price">£0.00</span>
+              </div>
+              <div class="r-line">
+                <span>Sponge &amp; Filling Upgrades</span>
+                <span id="rcpt-flavor-price">£0.00</span>
+              </div>
+              <div class="r-line">
+                <span>Decoration &amp; Styling</span>
+                <span id="rcpt-decor-price">£18.00</span>
+              </div>
+              <div class="r-line">
+                <span>Celebration Add-ons</span>
+                <span id="rcpt-addon-price">£14.00</span>
+              </div>
+              <div class="r-line">
+                <span>Hand-Piped Message</span>
+                <span class="is-free">Included</span>
+              </div>
+              <div class="r-line">
+                <span>Specialised Courier Delivery</span>
+                <span id="rcpt-del-price">£6.50</span>
+              </div>
+              <div class="r-total">
+                <small>Final Total (Inc. VAT)</small>
+                <strong id="rcpt-final-total">£116.50</strong>
+              </div>
+              <div class="r-note">
+                <svg class="i"><use href="#i-sparkle"></use></svg> Price locked once reserved. Guaranteed fresh on arrival.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 3 — DELIVERY SLOT PICKER ============ -->
+    <section class="section" id="delivery" aria-labelledby="del-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__text">
+            <span class="eyebrow">Precise Scheduling</span>
+            <h2 id="del-title">Delivery slot <em>picker.</em></h2>
+            <p>Our hand-carried temperature-controlled couriers guarantee arrival within your chosen 4-hour window.</p>
+          </div>
+        </div>
+
+        <div class="slot-grid reveal">
+          <!-- Calendar -->
+          <div class="calendar">
+            <div class="cal-head">
+              <h3 id="cal-month-name">October 2026</h3>
+              <div class="cal-nav">
+                <button class="icon-btn" type="button" id="cal-prev" aria-label="Previous month" disabled><svg class="i"><use href="#i-chevron-left"></use></svg></button>
+                <button class="icon-btn" type="button" id="cal-next" aria-label="Next month"><svg class="i"><use href="#i-chevron-right"></use></svg></button>
+              </div>
+            </div>
+
+            <div class="cal-week">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
+
+            <div class="cal-legend">
+              <span><i class="lg-av"></i> Available</span>
+              <span><i class="lg-lim"></i> Limited slots</span>
+              <span><i class="lg-prep"></i> Prep notice needed</span>
+              <span><i class="lg-full"></i> Fully booked</span>
+            </div>
+          </div>
+
+          <!-- Slot Side Controls -->
+          <div class="slot-side">
+            <div class="method-toggle" role="tablist" aria-label="Fulfillment method">
+              <button type="button" class="is-active" role="tab" id="tab-delivery" aria-selected="true" data-method="delivery">
+                <svg class="i"><use href="#i-truck"></use></svg> Courier Delivery
+              </button>
+              <button type="button" role="tab" id="tab-pickup" aria-selected="false" data-method="pickup">
+                <svg class="i"><use href="#i-store"></use></svg> Atelier Pickup
+              </button>
+            </div>
+
+            <div id="method-delivery-panel" class="field">
+              <span class="field-label">Available Time Slots (<span id="sel-date-text">Thu 9 Oct</span>)</span>
+              <div class="slots" id="slot-list" role="radiogroup" aria-label="Delivery time slots">
+                <button class="slot" type="button" role="radio" aria-checked="true" data-slot="Morning (8 AM – 12 PM)">
+                  <span class="slot-ico"><svg class="i"><use href="#i-sun"></use></svg></span>
+                  <div>
+                    <strong>Morning Slot</strong>
+                    <small>8:00 AM – 12:00 PM</small>
+                  </div>
+                  <span class="slot-cap">Available</span>
+                </button>
+                <button class="slot" type="button" role="radio" aria-checked="false" data-slot="Afternoon (12 PM – 4 PM)">
+                  <span class="slot-ico"><svg class="i"><use href="#i-clock"></use></svg></span>
+                  <div>
+                    <strong>Afternoon Slot</strong>
+                    <small>12:00 PM – 4:00 PM</small>
+                  </div>
+                  <span class="slot-cap is-low">Only 2 left</span>
+                </button>
+                <button class="slot" type="button" role="radio" aria-checked="false" data-slot="Evening (4 PM – 8 PM)">
+                  <span class="slot-ico"><svg class="i"><use href="#i-moon"></use></svg></span>
+                  <div>
+                    <strong>Evening Slot</strong>
+                    <small>4:00 PM – 8:00 PM</small>
+                  </div>
+                  <span class="slot-cap">Available</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="method-pickup-panel" class="pickup-card" hidden>
+              <span class="slot-ico"><svg class="i"><use href="#i-pin"></use></svg></span>
+              <div>
+                <strong>Atelier Céleste Pickup Location</strong>
+                <small>48 Marylebone High St, London W1U 4RN</small>
+                <small style="color: var(--accent-text); font-weight: 600; margin-top: 4px;">Collection hours: 10:00 AM – 6:00 PM</small>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field span-2">
+                <label for="cust-address">Delivery Address / Venue</label>
+                <input class="input" id="cust-address" type="text" placeholder="Street address, building name or hotel venue" value="14 Montagu Square, Marylebone" required>
+              </div>
+              <div class="field">
+                <label for="cust-postcode">Postcode</label>
+                <input class="input" id="cust-postcode" type="text" value="W1H 2NN" required>
+              </div>
+              <div class="field">
+                <label for="cust-instructions">Delivery Instructions</label>
+                <input class="input" id="cust-instructions" type="text" placeholder="e.g. Leave with concierge">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 4 — BOOKING SUMMARY ============ -->
+    <section class="section section--alt" id="summary" aria-labelledby="sum-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__text">
+            <span class="eyebrow">Final Step</span>
+            <h2 id="sum-title">Booking <em>summary.</em></h2>
+            <p>Review your cake specification and contact details before confirming your order with the baker.</p>
+          </div>
+        </div>
+
+        <div class="summary reveal">
+          <div class="summary-main">
+            <div class="sum-hero">
+              <div class="sum-cake" id="sum-cake-render"></div>
+              <div>
+                <span class="sum-ref"><svg class="i"><use href="#i-sparkle"></use></svg> Draft Booking #MS-8492</span>
+                <h3 id="sum-cake-title">8" Bespoke Vanilla Bean Cake</h3>
+                <p id="sum-cake-sub">Atelier Céleste · Marylebone Studio</p>
+              </div>
+            </div>
+
+            <div class="sum-specs">
+              <div><small>Shape &amp; Tiers</small><span id="sum-spec-shape">Round · Single Tier</span></div>
+              <div><small>Size &amp; Servings</small><span id="sum-spec-size">8" (14-16 portions)</span></div>
+              <div><small>Sponge Flavor</small><span id="sum-spec-flavor">Madagascan Vanilla</span></div>
+              <div><small>Layer Filling</small><span id="sum-spec-filling">Raspberry Gel</span></div>
+              <div><small>Decor &amp; Finish</small><span id="sum-spec-decor">Pressed Organic Florals</span></div>
+              <div><small>Hand-Piped Text</small><span id="sum-spec-msg">"Happy Birthday"</span></div>
+            </div>
+
+            <div class="sum-delivery">
+              <div>
+                <svg class="i"><use href="#i-calendar"></use></svg>
+                <small>Fulfillment Date</small>
+                <span id="sum-date">Thu, 9 Oct 2026</span>
+              </div>
+              <div>
+                <svg class="i"><use href="#i-clock"></use></svg>
+                <small>Time Slot</small>
+                <span id="sum-slot">Morning (8 AM – 12 PM)</span>
+              </div>
+              <div>
+                <svg class="i"><use href="#i-pin"></use></svg>
+                <small>Destination</small>
+                <span id="sum-address">14 Montagu Square, W1H</span>
+              </div>
+            </div>
+
+            <div class="prep-bar">
+              <div class="prep-bar-head">
+                <span>Estimated Preparation Timeline</span>
+                <strong>24h Lead Time</strong>
+              </div>
+              <div class="prep-track"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+              <div class="prep-labels"><span>Brief Received</span><span>Sponge Baking</span><span>Decorating</span><span>Dispatched</span></div>
+            </div>
+          </div>
+
+          <div class="summary-side">
+            <h3 class="sum-side-title">Contact &amp; Confirm</h3>
+            <form id="booking-confirm-form" novalidate style="display:grid; gap:14px;">
+              <div class="field">
+                <label for="cust-name">Full Name</label>
+                <input class="input" id="cust-name" type="text" value="Léa Seydoux" required>
+              </div>
+              <div class="field">
+                <label for="cust-email">Email Address</label>
+                <input class="input" id="cust-email" type="email" value="lea.seydoux@example.com" required>
+              </div>
+              <div class="field">
+                <label for="cust-phone">Mobile Phone (for delivery SMS)</label>
+                <input class="input" id="cust-phone" type="tel" value="+44 7700 900482" required>
+              </div>
+
+              <div style="margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--line);">
+                <div class="estimate-line"><span>Itemized Total</span><span id="sum-tot-val">£116.50</span></div>
+                <div class="estimate-total" style="padding-top: 8px;">
+                  <span>Pay to Confirm</span>
+                  <strong id="sum-pay-val">£116.50</strong>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--block" id="confirm-booking-btn">
+                Confirm &amp; Place Order <svg class="i i--move"><use href="#i-check"></use></svg>
+              </button>
+              <p class="confirm-note">Free cancellation up to 48 hours before delivery window.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ CONFIRMATION MODAL ============ -->
+  <div class="modal" id="confirm-modal" hidden aria-modal="true" role="dialog" aria-labelledby="confirm-modal-title">
+    <div class="modal-dialog confirm-dialog">
+      <button class="icon-btn modal-close" type="button" data-close-modal aria-label="Close dialog">
+        <svg class="i"><use href="#i-close"></use></svg>
+      </button>
+      <div class="confirm-seal">
+        <svg class="i"><use href="#i-check"></use></svg>
+      </div>
+      <h2 id="confirm-modal-title">Booking Confirmed!</h2>
+      <p>Your order has been transmitted directly to Élodie Marchand at Atelier Céleste.</p>
+      <div class="confirm-ref">
+        <small>Order Reference Number</small>
+        <strong>MS-2026-8492</strong>
+      </div>
+      <p style="font-size: .88rem; margin-bottom: 24px;">A confirmation receipt and live courier tracker link have been sent to your email.</p>
+      <div class="confirm-actions">
+        <a href="dashboard.html" class="btn btn--primary">View Baker Dashboard</a>
+        <a href="index.html" class="btn btn--ghost">Return Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Maison Sucre — Home">
+            <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 16a7.5 7.5 0 0 1 15 0"/><path d="M3 16h18M12 6.5V8.5"/><circle cx="12" cy="5.5" r="1"/><path d="M8 13.2a4.5 4.5 0 0 1 2.6-2"/></svg></span>
+            <span class="logo-text"><strong>Maison <em>Sucre</em></strong><small>Artisan Marketplace</small></span>
+          </a>
+          <div>
+            <p>A curated marketplace connecting London with its finest independent bakers, pâtissiers and chocolatiers.</p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Marketplace</h3>
+          <ul>
+            <li><a href="marketplace.html">Browse all creations</a></li>
+            <li><a href="custom-cake.html">Custom Cake Studio</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Bakers</h3>
+          <ul>
+            <li><a href="dashboard.html">Baker Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="mailto:care@maisonsucre.co.uk">Help centre</a></li>
+          </ul>
+          <form class="nl-form" novalidate style="margin-top: 20px;">
+            <label for="nl-email-cc" class="visually-hidden">Email address</label>
+            <input id="nl-email-cc" type="email" placeholder="Subscribe for seasonal updates" required autocomplete="email">
+            <button class="btn btn--primary btn--sm" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Maison Sucre Ltd. Made with care in London.</p>
+        <div class="footer-legal">
+          <a href="#main">Privacy Policy</a>
+          <a href="#main">Terms of Service</a>
+          <a href="#main">Cookies</a>
+        </div>
+        <div class="socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i">
+              <use href="#i-instagram"></use>
+            </svg></a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest"><svg class="i">
+              <use href="#i-pinterest"></use>
+            </svg></a>
+          <a href="https://x.com" target="_blank" rel="noopener" aria-label="X"><svg class="i">
+              <use href="#i-x"></use>
+            </svg></a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg class="i">
+              <use href="#i-youtube"></use>
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">
+    <svg class="btt-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22"/></svg>
+    <svg class="i" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/custom-cake.js"></script>
+</body>
+</html>
