@@ -23,6 +23,9 @@
           <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 16a7.5 7.5 0 0 1 15 0"/><path d="M3 16h18M12 6.5V8.5"/><circle cx="12" cy="5.5" r="1"/><path d="M8 13.2a4.5 4.5 0 0 1 2.6-2"/></svg></span>
           <span class="logo-text"><strong>Maison <em>Sucre</em></strong><small>Baker Suite</small></span>
         </a>
+        <button class="icon-btn sidebar-close" type="button" id="sidebar-close" aria-label="Close Navigation">
+          <svg class="i"><use href="#i-x"></use></svg>
+        </button>
       </div>
 
       <nav class="db-nav" aria-label="Dashboard sections">
@@ -53,7 +56,7 @@
       </div>
 
       <div class="db-baker-profile">
-        <img src="images/baker_woman.jpg" alt="Élodie Marchand">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&w=400&q=80" alt="Élodie Marchand">
         <div>
           <strong>Atelier Céleste</strong>
           <small>Élodie Marchand · Marylebone</small>
@@ -68,15 +71,11 @@
     <!-- ============ MAIN CONTENT AREA ============ -->
     <div style="display: flex; flex-direction: column; min-width: 0;">
       <!-- Mobile Bar -->
-      <div class="db-mobile-bar" style="display: none;">
+      <div class="db-mobile-bar">
         <button class="icon-btn" type="button" id="sidebar-toggle" aria-label="Toggle Navigation">
           <svg class="i"><use href="#i-menu"></use></svg>
         </button>
         <strong style="font-family: var(--f-display);">Atelier Céleste Dashboard</strong>
-        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
-          <svg class="i i-moon"><use href="#i-moon"></use></svg>
-          <svg class="i i-sun"><use href="#i-sun"></use></svg>
-        </button>
       </div>
 
       <main class="db-main" id="db-main">

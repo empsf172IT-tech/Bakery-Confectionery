@@ -24,6 +24,7 @@
   overflow-y: auto;
 }
 .db-brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline: 8px; }
+.sidebar-close { display: none; }
 .db-nav { display: flex; flex-direction: column; gap: 4px; }
 .db-nav button, .db-nav a {
   display: flex; align-items: center; gap: 12px;
@@ -48,11 +49,11 @@
 .db-baker-profile small { font-size: .74rem; color: var(--muted); }
 
 /* ---------- Main Content Area ---------- */
-.db-main { padding: clamp(24px, 4vw, 40px); display: grid; gap: 36px; min-width: 0; }
+.db-main { padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; min-width: 0; overflow-x: hidden; }
 .db-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
 .db-header-titles h1 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
 .db-header-titles p { color: var(--muted); font-size: .94rem; margin-top: 4px; }
-.db-header-actions { display: flex; align-items: center; gap: 12px; }
+.db-header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
 /* ---------- Section 1: Overview Cards ---------- */
 .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
@@ -71,11 +72,11 @@
 [data-theme="dark"] .kpi-trend { color: #81C784; }
 
 /* ---------- Section 2: Order Table ---------- */
-.db-card { background: var(--surface); border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow-sm); overflow: hidden; }
+.db-card { background: var(--surface); border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow-sm); overflow: hidden; max-width: 100%; min-width: 0; }
 .db-card-head { padding: 22px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
 .db-card-head h2 { font-size: 1.45rem; }
 
-.table-wrap { overflow-x: auto; scrollbar-width: thin; }
+.table-wrap { overflow-x: auto; scrollbar-width: thin; width: 100%; max-width: 100%; }
 .db-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9rem; white-space: nowrap; }
 .db-table th { padding: 14px 22px; background: var(--bg); font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
 .db-table td { padding: 16px 22px; border-bottom: 1px solid var(--line); vertical-align: middle; }
@@ -111,7 +112,7 @@
 .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
 
 /* ---------- Section 4: Analytics Charts ---------- */
-.charts-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; }
+.charts-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; }
 .chart-box { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
 .chart-box h3 { font-size: 1.25rem; }
 .chart-svg { width: 100%; height: 220px; }
@@ -122,25 +123,27 @@
 .chart-bar-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width .8s var(--ease); }
 
 /* ---------- Responsive Dashboard ---------- */
+.db-mobile-bar { display: none; }
 @media (max-width: 1080px) {
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .charts-grid { grid-template-columns: 1fr; }
+  .charts-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 860px) {
-  .db-layout { grid-template-columns: 1fr; }
+  .db-layout { grid-template-columns: minmax(0, 1fr); }
   .db-sidebar {
     position: fixed; top: 0; left: 0; bottom: 0; width: 280px;
     transform: translateX(-100%); transition: transform .35s var(--ease);
     box-shadow: var(--shadow-lg); z-index: 100;
   }
   .db-sidebar.is-open { transform: none; }
-  .db-mobile-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px var(--gutter); background: var(--surface); border-bottom: 1px solid var(--line); }
+  .sidebar-close { display: inline-flex; }
+  .db-mobile-bar { display: flex; align-items: center; justify-content: flex-start; gap: 16px; padding: 12px var(--gutter); background: var(--surface); border-bottom: 1px solid var(--line); }
 }
 
 @media (max-width: 520px) {
-  .kpi-grid { grid-template-columns: 1fr; }
-  .mgmt-grid { grid-template-columns: 1fr; padding: 16px; }
+  .kpi-grid { grid-template-columns: minmax(0, 1fr); }
+  .mgmt-grid { grid-template-columns: minmax(0, 1fr); padding: 16px; }
   .db-card-head { padding: 16px; }
   .db-main { padding: 16px; }
 }

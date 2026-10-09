@@ -60,9 +60,17 @@
 
     // Mobile Sidebar Toggle
     const mobileToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebar = document.getElementById('db-sidebar');
+
     if (mobileToggle) {
       mobileToggle.addEventListener('click', () => {
-        document.getElementById('db-sidebar')?.classList.toggle('is-open');
+        sidebar?.classList.toggle('is-open');
+      });
+    }
+    if (sidebarClose) {
+      sidebarClose.addEventListener('click', () => {
+        sidebar?.classList.remove('is-open');
       });
     }
 
