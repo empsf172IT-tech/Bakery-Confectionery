@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Maison Sucre — marketplace catalogue (shared by Home & Marketplace)
    ========================================================================== */
 window.MS_DATA = (function () {
@@ -10,13 +10,13 @@ window.MS_DATA = (function () {
       name: 'Atelier Céleste',
       baker: 'Élodie Marchand',
       role: 'Head Pâtissière & Founder',
-      portrait: 'https://images.unsplash.com/photo-1556910103-1c02745a872f?auto=format&fit=crop&w=400&q=80',
+      portrait: 'images/baker_woman.jpg',
       initials: 'AC',
       specialty: 'Sugar-flower couture cakes & entremets',
       rating: 4.96, reviews: 1284, years: 14,
       zone: 'Marylebone · Mayfair · Fitzrovia',
       signature: 'Rose & Lychee Celestine',
-      signatureImg: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
+      signatureImg: 'images/rose_cake.jpg',
       bio: 'Trained at Ferrandi Paris, Élodie hand-sculpts every petal in her Marylebone atelier.'
     },
     {
@@ -30,7 +30,7 @@ window.MS_DATA = (function () {
       rating: 4.91, reviews: 2310, years: 19,
       zone: 'Shoreditch · Hackney · Islington',
       signature: 'Brown Butter Almond Croissant',
-      signatureImg: 'https://images.unsplash.com/photo-1555507036-ab1e4006a86c?auto=format&fit=crop&w=800&q=80',
+      signatureImg: 'images/croissants.jpg',
       bio: 'A 72-hour lamination process and a wood-fired deck oven older than the bakery itself.'
     },
     {
@@ -38,13 +38,13 @@ window.MS_DATA = (function () {
       name: 'Cacao Noor',
       baker: 'Anaya Rao',
       role: 'Chocolatier',
-      portrait: 'https://images.unsplash.com/photo-1605807616950-058dfdb55bd3?auto=format&fit=crop&w=400&q=80',
+      portrait: 'images/chocolatier_woman.jpg',
       initials: 'CN',
       specialty: 'Single-origin bonbons & ganache tortes',
       rating: 4.94, reviews: 968, years: 9,
       zone: 'Notting Hill · Kensington · Chelsea',
       signature: 'Kerala Spice Bonbon Collection',
-      signatureImg: 'https://images.unsplash.com/photo-1548883354-94cb0ce5e522?auto=format&fit=crop&w=800&q=80',
+      signatureImg: 'images/bonbons.jpg',
       bio: 'Bean-to-bar chocolate tempered by hand on Carrara marble, inspired by South Indian spice.'
     },
     {
@@ -52,7 +52,7 @@ window.MS_DATA = (function () {
       name: 'Petit Ruban',
       baker: 'Camille Okafor',
       role: 'Macaron Specialist',
-      portrait: null,
+      portrait: 'images/baker_woman.jpg',
       initials: 'PR',
       specialty: 'Parisian macarons & celebration cupcakes',
       rating: 4.89, reviews: 1542, years: 7,
@@ -66,19 +66,19 @@ window.MS_DATA = (function () {
       name: 'Amélie Pâtisserie',
       baker: 'Amélie Laurent',
       role: 'Pâtissière',
-      portrait: null,
+      portrait: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=400&q=80',
       initials: 'AP',
       specialty: 'Chantilly cakes & curated goûter boxes',
       rating: 4.93, reviews: 1108, years: 11,
       zone: 'Chelsea · South Kensington',
       signature: 'Strawberry Chantilly Cake',
-      signatureImg: 'https://images.unsplash.com/photo-1464349095431-e9a21285e5f3?auto=format&fit=crop&w=800&q=80',
+      signatureImg: 'images/berry_birthday_cake.jpg',
       bio: ''
     }
   ];
 
   const products = [
-    { id: 'p1', name: 'Rose & Lychee Celestine', bakery: 'celeste', img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
+    { id: 'p1', name: 'Rose & Lychee Celestine', bakery: 'celeste', img: 'images/rose_cake.jpg',
       category: 'birthday', occasions: ['birthday', 'anniversary', 'celebration'], dietary: ['nut-free'],
       price: 68, rating: 4.97, reviews: 412, delivery: 'next-day', badge: 'Signature', highlight: 'signature',
       desc: 'Three tiers of lychee chiffon layered with rose Swiss meringue and raspberry gel, finished with hand-sculpted sugar ranunculus.',
@@ -88,12 +88,12 @@ window.MS_DATA = (function () {
       price: 640, rating: 4.98, reviews: 96, delivery: 'scheduled', badge: 'Wedding Atelier', highlight: 'celebration',
       desc: 'Textured ivory buttercream over vanilla-bean and elderflower sponge, styled with garden roses and dried pampas.',
       serves: 'Serves 120', lead: '14 days notice' },
-    { id: 'p3', name: 'Brown Butter Almond Croissants', bakery: 'hearth', img: 'https://images.unsplash.com/photo-1555507036-ab1e4006a86c?auto=format&fit=crop&w=800&q=80',
+    { id: 'p3', name: 'Brown Butter Almond Croissants', bakery: 'hearth', img: 'images/croissants.jpg',
       category: 'pastries', occasions: ['gifting', 'corporate'], dietary: [],
       price: 24, rating: 4.92, reviews: 1208, delivery: 'same-day', badge: 'Bestseller', highlight: 'pastries',
       desc: 'Box of six twice-baked croissants with brown-butter frangipane and toasted Valencia almonds.',
       serves: 'Box of 6', lead: 'Order by 2 PM' },
-    { id: 'p4', name: 'Kerala Spice Bonbon Collection', bakery: 'noor', img: 'https://images.unsplash.com/photo-1548883354-94cb0ce5e522?auto=format&fit=crop&w=800&q=80',
+    { id: 'p4', name: 'Kerala Spice Bonbon Collection', bakery: 'noor', img: 'images/bonbons.jpg',
       category: 'chocolates', occasions: ['gifting', 'anniversary'], dietary: ['gluten-free'],
       price: 42, rating: 4.95, reviews: 530, delivery: 'same-day', badge: 'Limited', highlight: 'gifts',
       desc: 'Sixteen hand-painted bonbons — cardamom praline, black pepper caramel, jaggery ganache and more.',
@@ -113,7 +113,7 @@ window.MS_DATA = (function () {
       price: 46, rating: 4.96, reviews: 902, delivery: 'same-day', badge: 'Gift Edit', highlight: 'gifts',
       desc: 'Twenty-four macarons in a linen-wrapped coffret: salted caramel, rose, apricot, pistachio and fig.',
       serves: '24 pieces', lead: 'Order by 3 PM' },
-    { id: 'p8', name: 'Grand Goûter Dessert Box', bakery: 'amelie', img: 'https://images.unsplash.com/photo-1579619572421-2e6840742d8d?auto=format&fit=crop&w=800&q=80',
+    { id: 'p8', name: 'Grand Goûter Dessert Box', bakery: 'amelie', img: 'images/dessert_box.jpg',
       category: 'dessert-boxes', occasions: ['corporate', 'gifting', 'celebration'], dietary: [],
       price: 54, rating: 4.94, reviews: 276, delivery: 'next-day', badge: null, highlight: 'celebration',
       desc: 'Éclairs, financiers, choux and mini tarts — an afternoon tea in a box for four to six guests.',
@@ -123,17 +123,17 @@ window.MS_DATA = (function () {
       price: 38, rating: 4.90, reviews: 158, delivery: 'next-day', badge: 'Autumn Edit', highlight: 'seasonal',
       desc: 'Red-wine poached Comice pears and Turkish figs over almond crème, finished with Bronte pistachio.',
       serves: 'Serves 8', lead: '24h notice' },
-    { id: 'p10', name: 'Strawberry Chantilly Cake', bakery: 'amelie', img: 'https://images.unsplash.com/photo-1464349095431-e9a21285e5f3?auto=format&fit=crop&w=800&q=80',
+    { id: 'p10', name: 'Strawberry Chantilly Cake', bakery: 'amelie', img: 'images/berry_birthday_cake.jpg',
       category: 'birthday', occasions: ['birthday', 'celebration'], dietary: ['eggless'],
       price: 62, rating: 4.95, reviews: 734, delivery: 'same-day', badge: 'Same-day', highlight: 'celebration',
       desc: 'Feather-light genoise with mascarpone Chantilly, Kent strawberries and raspberries, gold candles included.',
       serves: 'Serves 10–12', lead: 'Order by 12 PM' },
-    { id: 'p11', name: 'Petit Déjeuner Viennoiserie Box', bakery: 'hearth', img: 'https://images.unsplash.com/photo-1555507036-ab1e4006a86c?auto=format&fit=crop&w=800&q=80', pos: '20% 60%',
+    { id: 'p11', name: 'Petit Déjeuner Viennoiserie Box', bakery: 'hearth', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', pos: '20% 60%',
       category: 'pastries', occasions: ['corporate', 'celebration'], dietary: ['vegan'],
       price: 36, rating: 4.87, reviews: 421, delivery: 'same-day', badge: 'Vegan', highlight: 'pastries',
       desc: 'Plant-based croissants, pain au chocolat and cardamom knots laminated with cultured oat butter.',
       serves: 'Box of 9', lead: 'Order by 2 PM' },
-    { id: 'p12', name: 'Gilded Praline Selection', bakery: 'noor', img: 'https://images.unsplash.com/photo-1548883354-94cb0ce5e522?auto=format&fit=crop&w=800&q=80', pos: '80% 70%',
+    { id: 'p12', name: 'Gilded Praline Selection', bakery: 'noor', img: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80', pos: '80% 70%',
       category: 'seasonal', occasions: ['gifting', 'anniversary'], dietary: ['gluten-free', 'eggless'],
       price: 29, rating: 4.91, reviews: 212, delivery: 'next-day', badge: 'Seasonal', highlight: 'seasonal',
       desc: 'Nine gilded pralines in autumn flavours — toasted chestnut, spiced pear and smoked hazelnut.',
