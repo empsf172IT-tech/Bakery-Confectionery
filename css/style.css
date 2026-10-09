@@ -78,7 +78,7 @@
 
 /* ---------- 2. Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after {
   transition: background-color .4s ease, border-color .4s ease, color .3s ease !important;
 }
@@ -89,7 +89,7 @@ body {
   line-height: 1.65;
   color: var(--text);
   background: var(--bg);
-  overflow-x: clip;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   opacity: 0;
   transition: opacity .45s var(--ease);
@@ -253,7 +253,7 @@ p { margin: 0; }
 .logo-mark {
   width: 40px; height: 40px; border-radius: 50%;
   display: grid; place-items: center;
-  background: var(--inverse); color: var(--on-inverse);
+  background: var(--accent); color: var(--on-accent);
   transition: transform .6s var(--ease);
 }
 .logo:hover .logo-mark { transform: rotate(-12deg); }
@@ -296,35 +296,30 @@ p { margin: 0; }
 .mm-foot { margin-top: auto; padding-top: 28px; color: var(--muted); font-size: .88rem; }
 
 /* ---------- 6. Footer ---------- */
-.site-footer { background: var(--inverse); color: var(--on-inverse); padding-top: clamp(40px, 5vw, 64px); position: relative; overflow: hidden; }
-.footer-top { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 36px; padding-bottom: 40px; border-bottom: 1px solid rgba(245, 237, 225, .12); }
-[data-theme="dark"] .footer-top { border-bottom-color: rgba(30, 21, 16, .14); }
-.footer-brand .logo-mark { background: var(--accent); color: var(--on-accent); }
-.footer-brand .logo-text small { color: var(--on-inverse-muted); }
+.site-footer { background: var(--surface-2); color: var(--text); padding-top: clamp(40px, 5vw, 64px); position: relative; overflow: hidden; }
+.footer-top { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 36px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.footer-brand .logo-text small { color: var(--muted); }
 .footer-brand .logo-text strong em { color: var(--accent); }
-[data-theme="dark"] .footer-brand .logo-text strong em { color: var(--terra); }
-.footer-brand p { margin-top: 22px; color: var(--on-inverse-muted); max-width: 340px; font-size: .95rem; }
+.footer-brand p { margin-top: 22px; color: var(--muted); max-width: 340px; font-size: .95rem; }
 .footer-contact { margin-top: 24px; display: grid; gap: 10px; font-size: .92rem; }
-.footer-contact a { display: inline-flex; align-items: center; gap: 10px; color: var(--on-inverse-muted); transition: color .2s; }
-.footer-contact a:hover { color: var(--on-inverse); }
-.footer-col h3 { font-family: var(--f-body); font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--on-inverse-muted); margin-bottom: 20px; }
+.footer-contact a { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); transition: color .2s; }
+.footer-contact a:hover { color: var(--text); }
+.footer-col h3 { font-family: var(--f-body); font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 20px; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.footer-col a { font-size: .95rem; position: relative; transition: color .2s, padding .3s var(--ease); }
+.footer-col a { font-size: .95rem; position: relative; color: var(--text); transition: color .2s, padding .3s var(--ease); }
 .footer-col a:hover { color: var(--accent); padding-left: 6px; }
-[data-theme="dark"] .footer-col a:hover { color: var(--terra); }
 
-.nl-form { display: flex; gap: 8px; padding: 5px; border-radius: var(--r-pill); border: 1px solid rgba(245, 237, 225, .22); width: min(380px, 100%); background: rgba(255, 255, 255, .04); }
-[data-theme="dark"] .nl-form { border-color: rgba(30, 21, 16, .22); }
-.nl-form input { flex: 1; min-width: 0; background: transparent; border: 0; padding: 0 14px; color: var(--on-inverse); font-size: .88rem; }
-.nl-form input::placeholder { color: var(--on-inverse-muted); }
+.nl-form { display: flex; gap: 8px; padding: 5px; border-radius: var(--r-pill); border: 1px solid var(--line-strong); width: min(380px, 100%); background: var(--surface); }
+.nl-form input { flex: 1; min-width: 0; background: transparent; border: 0; padding: 0 14px; color: var(--text); font-size: .88rem; }
+.nl-form input::placeholder { color: var(--muted); }
 .nl-form input:focus { outline: none; }
 
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0 20px; font-size: .85rem; color: var(--on-inverse-muted); flex-wrap: wrap; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0 20px; font-size: .85rem; color: var(--muted); flex-wrap: wrap; }
 .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
-.footer-legal a:hover { color: var(--on-inverse); }
+.footer-legal a { color: var(--muted); }
+.footer-legal a:hover { color: var(--text); }
 .socials { display: flex; gap: 10px; }
-.socials a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(245, 237, 225, .2); transition: background-color .25s, color .25s, transform .3s var(--ease), border-color .25s; }
-[data-theme="dark"] .socials a { border-color: rgba(30, 21, 16, .2); }
+.socials a { width: 40px; height: 40px; border-radius: 50%; color: var(--text); display: grid; place-items: center; border: 1px solid var(--line-strong); transition: background-color .25s, color .25s, transform .3s var(--ease), border-color .25s; }
 .socials a:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); transform: translateY(-3px); }
 .socials .i { width: 18px; height: 18px; }
 .footer-wordmark { display: none; }
@@ -544,7 +539,7 @@ p { margin: 0; }
 /* ==========================================================================
    SHARED PAGE HERO (Marketplace + Custom)
    ========================================================================== */
-.page-hero { padding-top: clamp(28px, 4vw, 56px); padding-bottom: clamp(48px, 6vw, 80px); }
+.page-hero { padding-top: clamp(28px, 4vw, 56px); padding-bottom: clamp(48px, 6vw, 80px); background-image: linear-gradient(var(--surface-glass), var(--surface-glass)), url('../images/chocolate_cake.jpg'); background-size: cover; background-position: center; }
 .crumbs { display: flex; gap: 10px; align-items: center; font-size: .82rem; color: var(--muted); }
 .crumbs a:hover { color: var(--text); }
 .crumbs .i { width: 14px; height: 14px; }
